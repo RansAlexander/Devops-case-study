@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CsvHelper" Version="27.2.0" />
+      <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+      <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="96.0.4664.4500" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="ConsoleApp1.exe">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+<!--    <Target Name="AfterBuild">-->
+<!--        <Copy SourceFiles="$(OutputPath)yourfiles" DestinationFolder="$(YourVariable)" ContinueOnError="true" />-->
+<!--    </Target>-->
+
+</Project>
