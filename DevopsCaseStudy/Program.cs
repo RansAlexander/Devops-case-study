@@ -3,7 +3,6 @@
 namespace DevopsCaseStudy {
     public class program {
         static Browser browser = new Browser();
-        static Preferences preferences = new Preferences();
         public static CSV csv = new CSV();
         private static string menuSelection;
 
@@ -21,7 +20,7 @@ namespace DevopsCaseStudy {
                 Console.WriteLine("2) Get recent videos");
                 Console.WriteLine("3) Search on indeed");
                 Console.WriteLine("4) Search for products");
-                Console.WriteLine("5) Preferences");
+                // Console.WriteLine("5) Preferences");
                 Console.Write("Make your selection: ");
                 menuSelection = Console.ReadLine();
                 
@@ -91,8 +90,8 @@ namespace DevopsCaseStudy {
                 else if (menuSelection == "5") {
                     while (true) {
                         Console.Clear();
-                        Console.WriteLine("Current preferences: Browser - " + preferences.getBrowserName() +
-                                          " Remote - " + preferences.getBrowserRemote());
+                        Console.WriteLine("Current preferences: Browser - " + browser.getBrowserName() +
+                                          " Remote - " + browser.getRemote());
                         Console.WriteLine("1) Change preferred browser (only for local connection)");
                         Console.WriteLine("2) Change remote (may be slower)");
                         Console.WriteLine("3) Return");
@@ -110,25 +109,24 @@ namespace DevopsCaseStudy {
                             menuSelection = Console.ReadLine();
                             switch (menuSelection) {
                                 case "1":
-                                    preferences.setBrowserName("Chrome");
+                                    browser.setBrowserName("Chrome");
                                     break;
                                 case "2":
-                                    preferences.setBrowserName("Firefox");
+                                    browser.setBrowserName("Firefox");
                                     break;
                                 case "3":
-                                    preferences.setBrowserName("Edge");
+                                    browser.setBrowserName("Edge");
                                     break;
                                 case "4":
-                                    preferences.setBrowserName("Opera");
+                                    browser.setBrowserName("Opera");
                                     break;
                                 case "5":
-                                    preferences.setBrowserName("Safari");
+                                    browser.setBrowserName("Safari");
                                     break;
                                 default:
                                     incorrectSelection();
                                     break;
                             }
-                            browser = new Browser(preferences.getBrowserName(), preferences.getBrowserRemote());
                         }
                         else if (menuSelection == "2") {
                             Console.Clear();
@@ -138,16 +136,15 @@ namespace DevopsCaseStudy {
                             menuSelection = Console.ReadLine();
                             switch (menuSelection) {
                                 case "1":
-                                    preferences.setBrowserRemote(true);
+                                    browser.setRemote(true);
                                     break;
                                 case "2":
-                                    preferences.setBrowserRemote(false);
+                                    browser.setRemote(false);
                                     break;
                                 default:
                                     incorrectSelection();
                                     break;
                             }
-                            browser = new Browser(preferences.getBrowserName(), preferences.getBrowserRemote());
                         }
                         else if (menuSelection == "3") {
                             break;

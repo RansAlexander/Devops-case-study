@@ -29,13 +29,33 @@ namespace DevopsCaseStudy {
             this.remote = false;
         }
 
+        public bool getRemote() {
+            return this.remote;
+        }
+        
+        public string getBrowserName() {
+            return this.browserName;
+        }
+
+        public void setRemote(bool remote) {
+            this.remote = remote;
+        }
+        
+        public void setBrowserName(string browserName) {
+            this.browserName = browserName;
+        }
+
+        public void setBrowser(string browser) {
+            this.browserName = browser;
+        }
+
         public IWebDriver startBrowser() {
             String username = "alexanderrans";
             String accesskey = "5HkDl21lMTsd562eUA48eSJgbe2OZeH7CcVahQ0e7DOXgAQT2n";
             String gridURL = "@hub.lambdatest.com/wd/hub";
             IWebDriver driver = null;
             
-            if (this.remote) {
+            if (this.remote == true) {
                 DesiredCapabilities capabilities = new DesiredCapabilities();
                 capabilities.SetCapability("user", username);
                 capabilities.SetCapability("accessKey", accesskey);

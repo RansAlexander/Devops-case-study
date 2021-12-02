@@ -82,7 +82,7 @@ namespace DevopsCaseStudy {
                         productName = driver.FindElement(By.CssSelector(".product-card .product-card__title a")).Text;
                         productLink = driver.FindElement(By.CssSelector(".product-card .product-card__title a")).GetAttribute("href");
                         productPrice = driver.FindElement(By.CssSelector(".product-card .sales-price__current")).Text;
-                        productPrice.Replace("-", "00");
+                        productPrice = productPrice.Replace("-", "00");
                         Console.WriteLine(productName);
                         Console.WriteLine(productLink);
                         Console.WriteLine(productPrice + "\n");

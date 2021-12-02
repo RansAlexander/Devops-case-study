@@ -1,16 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Edge;
-using OpenQA.Selenium.Opera;
-using OpenQA.Selenium.Safari;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
-using System.Collections.ObjectModel;
 using System.Threading;
-using System.IO;
 using System.Text.RegularExpressions;
 
 namespace DevopsCaseStudy {
