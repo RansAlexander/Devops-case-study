@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace DevopsCaseStudy {
     public class program {
@@ -21,7 +20,8 @@ namespace DevopsCaseStudy {
                 Console.WriteLine("1) Scrape videos from channel");
                 Console.WriteLine("2) Get recent videos");
                 Console.WriteLine("3) Search on indeed");
-                Console.WriteLine("4) Preferences");
+                Console.WriteLine("4) Search for products");
+                Console.WriteLine("5) Preferences");
                 Console.Write("Make your selection: ");
                 menuSelection = Console.ReadLine();
                 
@@ -75,9 +75,20 @@ namespace DevopsCaseStudy {
                         }
                     }
                 }
+                else if (menuSelection == "4") {
+                    Console.Clear();
+                    Console.Write("Give search query: ");
+                    string searchQuery = Console.ReadLine();
+                    ProductSearch product = new ProductSearch(searchQuery);
+                    product.searchProducts(browser);
+                    Console.Write("Would you like to save this to .CSV? (Y/N) ");
+                    if (Console.ReadLine().ToUpper() == "Y") {
+                        product.writeCSV();
+                    }
+                }
                 
                 // preferences
-                else if (menuSelection == "4") {
+                else if (menuSelection == "5") {
                     while (true) {
                         Console.Clear();
                         Console.WriteLine("Current preferences: Browser - " + preferences.getBrowserName() +

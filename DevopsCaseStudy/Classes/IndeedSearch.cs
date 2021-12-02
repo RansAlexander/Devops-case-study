@@ -87,9 +87,9 @@ namespace DevopsCaseStudy {
                     driver.Navigate().GoToUrl(newurl);
                     Thread.Sleep(1000);
                 }
+                driver.Close();
                 Console.Write("Press enter to continue");
                 Console.ReadLine();
-                driver.Close();
             }
             catch (NoSuchElementException e)
             {
