@@ -3,7 +3,6 @@
 namespace DevopsCaseStudy {
     public class program {
         static Browser browser = new Browser();
-        public static CSV csv = new CSV();
         private static string menuSelection;
 
         static void incorrectSelection() {
@@ -14,6 +13,7 @@ namespace DevopsCaseStudy {
         }
 
         static void Main(string[] args) {
+            var envvar = Environment.GetEnvironmentVariable(".env");
             while (true) {
                 Console.Clear();
                 Console.WriteLine("1) Scrape videos from channel");

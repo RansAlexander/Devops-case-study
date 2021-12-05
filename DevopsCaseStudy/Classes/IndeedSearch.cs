@@ -22,6 +22,11 @@ namespace DevopsCaseStudy {
         }
 
         public void searchJobs(Browser browser) {
+            // csv header
+            String csvheader = "JobID;Job title; Company; Location;Link";
+            csv.generateCSV(csvheader);
+            
+            
             IWebDriver driver = browser.startBrowser();
             int vcount = 1;
             string searchUrl = "https://be.indeed.com/jobs?q=" + this.searchQuery + "&l=" + this.searchCity +
@@ -64,14 +69,16 @@ namespace DevopsCaseStudy {
                         str_city = elem_job_city.Text;
                         IWebElement elem_job_date = job.FindElement(By.CssSelector(".date"));
                         str_posted = elem_job_date.Text;
-                        Console.WriteLine($"Job {vcount}");
-                        Console.WriteLine(str_title);
-                        Console.WriteLine(str_company);
-                        Console.WriteLine(str_city);
-                        Console.WriteLine(str_posted);
-                        Console.WriteLine(str_link);
-                        Console.WriteLine();
-                        csvtext = $"\"{vcount}\";\"{str_title}\";\"{str_company}\";\"{str_city}\";\"{str_link}\"";
+                        
+                        Console.WriteLine("******* Job " + vcount + " *******");
+                        Console.WriteLine("Job title: " + str_title);
+                        Console.WriteLine("Company: " + str_company);
+                        Console.WriteLine("City: " + str_city);
+                        Console.WriteLine("Age: " + str_posted.Replace("\r\n", " "));
+                        Console.WriteLine("Link: " + str_link);
+                        Console.WriteLine("");
+                        
+                        csvtext = $"{vcount};\"{str_title}\";\"{str_company}\";\"{str_city}\";\"{str_link}\"";
                         csv.generateCSV(csvtext);
                         vcount++;
                     }
@@ -83,8 +90,7 @@ namespace DevopsCaseStudy {
                 Console.Write("Press enter to continue");
                 Console.ReadLine();
             }
-            catch (NoSuchElementException e)
-            {
+            catch (NoSuchElementException e) {
                 driver.Close();
                 Console.Clear();
                 Console.WriteLine("Nothing found or invalid querry");

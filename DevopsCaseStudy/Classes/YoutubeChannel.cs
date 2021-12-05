@@ -13,10 +13,13 @@ namespace DevopsCaseStudy {
             this.channelUrl = channelUrl + "/videos";
         }
         public void getAllVideos(Browser browser) {
+            String csvheader = "VideoID;Video title;Views";
+            csv.generateCSV(csvheader);
+            
             IWebDriver driver = browser.startBrowser();
             driver.Url = this.channelUrl;
             var timeout = 10000;
-            int vcount = 0;
+            int vcount = 1;
             var wait = new WebDriverWait(driver, TimeSpan.FromMilliseconds(timeout));
             wait.Until(d => ((IJavaScriptExecutor)d).ExecuteScript("return document.readyState").Equals("complete"));
             
@@ -65,8 +68,8 @@ namespace DevopsCaseStudy {
                 Console.WriteLine("Video Title: " + str_title);
                 Console.WriteLine("Video Views: " + str_views);
                 Console.WriteLine("Video Release Date: " + str_rel);
-                Console.WriteLine("\n");
-                csvtext = $"{vcount};{str_title};{str_views}";
+                Console.WriteLine("");
+                csvtext = $"{vcount};\"{str_title}\";{str_views.Replace(" views", "")}";
                 csv.generateCSV(csvtext);
                 vcount++;
             }

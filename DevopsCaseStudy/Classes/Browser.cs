@@ -26,7 +26,7 @@ namespace DevopsCaseStudy {
 
         public Browser(string browserName, bool remote) {
             this.browserName = browserName;
-            this.remote = false;
+            this.remote = remote;
         }
 
         public bool getRemote() {
