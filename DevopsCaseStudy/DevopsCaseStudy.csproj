@@ -12,4 +12,8 @@
       <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="96.0.4664.4500" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include=".github" />
+    </ItemGroup>
+
 </Project>
