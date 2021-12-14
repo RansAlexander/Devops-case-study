@@ -15,5 +15,8 @@
     <ItemGroup>
       <Folder Include=".github" />
     </ItemGroup>
+    <Target Name="CopyCustomContentOnPublish" AfterTargets="Publish">
+        <Copy SourceFiles="chromedriver.exe" DestinationFolder="$(PublishDir)" />
+    </Target>
 
 </Project>
