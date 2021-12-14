@@ -15,7 +15,7 @@ jobs:
       - name: ls files
         run: ls -a
       - name: Install dependencies
-        run: dotnet restore ./
+        run: dotnet restore 
       - name: Build
         run: dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:PublishTrimmed=true
       - name: Upload dotnet test results
