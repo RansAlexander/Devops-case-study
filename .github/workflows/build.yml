@@ -10,10 +10,10 @@ jobs:
         uses: actions/setup-dotnet@v1.7.2
         with:
           dotnet-version: 6.0.x
-      - name: print pwd
-        run: pwd
-      - name: ls files
-        run: ls -a
+#      - name: print pwd
+#        run: pwd
+#      - name: ls files
+#        run: ls -a
       - name: Install dependencies
         run: dotnet restore 
       - name: Build
@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: dotnet-results-6.0
-          path: TestResults-6.0
+          path: /home/runner/work/Devops-case-study/Devops-case-study/DevopsCaseStudy/bin/Release/net6.0/win-x64/publish/
         # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
         
